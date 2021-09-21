@@ -18,9 +18,9 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Algorithm Blog                 # the main title
+title: Seohyon's DEVlog                # the main title
 
-tagline: Solving BAEKJOON   # it will display as the sub-title
+tagline: Computer engineering Freshman   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   test description
