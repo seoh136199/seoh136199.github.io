@@ -18,7 +18,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: My Algorithm Blog                 # the main title
+title: Algorithm Blog                 # the main title
 
 tagline: Solving BAEKJOON   # it will display as the sub-title
 
@@ -43,6 +43,7 @@ social:
     # The first element serves as the copyright owner's link
 #    - https://twitter.com/username      # change to your twitter homepage
     - https://github.com/seoh136199       # change to your github homepage
+    - https://www.acmicpc.net/user/110000110101
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -80,7 +81,7 @@ theme_mode: dark  # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/avatar.jpg
+avatar: /assets/img/ProfileImage.png
 
 # boolean type, the global switch for ToC in posts.
 toc: true
