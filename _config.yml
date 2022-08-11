@@ -20,7 +20,7 @@ timezone: Asia/Seoul
 
 title: Seohyun's DEVlog                # the main title
 
-tagline: Computer Engineering Freshman # it will display as the sub-title
+tagline: Computer Engineering Sophomore # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   백준 문제 풀이를 주로 포스팅합니다
