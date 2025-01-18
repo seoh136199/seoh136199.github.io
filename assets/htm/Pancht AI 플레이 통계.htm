@@ -4,16 +4,29 @@
     <meta charset="utf-8" />
     <title>Pancht AI 플레이 통계</title>
     <style>
-      /* header 태그 숨기기 */
       header {
-        display: none;
+        display: none !important;
       }
 
-      /* main 태그 바로 다음의 div 숨기기 */
       main + div {
-        display: none;
+        display: none !important;
+      }
+
+      main > div > div {
+        cursor: default !important;
       }
     </style>
+
+    <script>
+      document.addEventListener(
+        "click",
+        function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        },
+        true
+      );
+    </script>
 
     <meta name="app-name" content="design_viewer" />
     <meta
@@ -178,14 +191,14 @@
             sizes="180x180" /> -->
   </head>
   <body>
-    <!-- <script nonce="Z07GHF6M7SR7+xGxOCSaQQ">
-            document.documentElement.classList.replace(
-                "adaptive",
-                window.matchMedia("(prefers-color-scheme: dark)").matches
-                    ? "dark"
-                    : "light"
-            );
-        </script> -->
+    <script nonce="Z07GHF6M7SR7+xGxOCSaQQ">
+      document.documentElement.classList.replace(
+        "adaptive",
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
+      );
+    </script>
     <div id="root"></div>
     <script nonce="Z07GHF6M7SR7+xGxOCSaQQ">
       (function () {
@@ -201,18 +214,19 @@
         window["__batch_chunks__"] = true;
       })();
     </script>
-    <!-- <script
-            src="https://static.canva.com/static/lib/sentry/7.16.0.min.js"
-            nonce="Z07GHF6M7SR7+xGxOCSaQQ"></script> -->
-    <!-- <script type="application/javascript" nonce="Z07GHF6M7SR7+xGxOCSaQQ">
-            Sentry.init({
-                dsn: "https:\u002F\u002F944d224d45b943ba9f96396432dfd868@o13855.ingest.sentry.io\u002F1767683",
-                release: "20250115-21-4274247",
-                environment: "prod",
-                autoSessionTracking: true,
-            });
-            Sentry.setTag("initLocation", "html");
-        </script> -->
+    <script
+      src="https://static.canva.com/static/lib/sentry/7.16.0.min.js"
+      nonce="Z07GHF6M7SR7+xGxOCSaQQ"
+    ></script>
+    <script type="application/javascript" nonce="Z07GHF6M7SR7+xGxOCSaQQ">
+      Sentry.init({
+        dsn: "https:\u002F\u002F944d224d45b943ba9f96396432dfd868@o13855.ingest.sentry.io\u002F1767683",
+        release: "20250115-21-4274247",
+        environment: "prod",
+        autoSessionTracking: true,
+      });
+      Sentry.setTag("initLocation", "html");
+    </script>
     <script
       crossorigin="anonymous"
       src="https://static.canva.com/web/55ffc984b5caf4ba.strings.js"
@@ -253,12 +267,13 @@
       integrity="sha512-pI9v+fbuZZxJy3VRhGweuC5ysJkeP3olCNPDm5XiCQLkenvsKo9fh/bmny3Or2vuB2W5HGUUG7feEH6E6E+tug=="
       nonce="Z07GHF6M7SR7+xGxOCSaQQ"
     ></script>
-    <!-- <script
-            defer
-            src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-            integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-            nonce="Z07GHF6M7SR7+xGxOCSaQQ"
-            data-cf-beacon='{"rayId":"903ec3c05c78d1f3","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.1.0","token":"ef88e2b2e2894e859fa7553dc8d0441c"}'
-            crossorigin="anonymous"></script> -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+      integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+      nonce="Z07GHF6M7SR7+xGxOCSaQQ"
+      data-cf-beacon='{"rayId":"903ec3c05c78d1f3","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.1.0","token":"ef88e2b2e2894e859fa7553dc8d0441c"}'
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
