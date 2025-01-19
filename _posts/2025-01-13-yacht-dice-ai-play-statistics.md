@@ -69,12 +69,6 @@ last_modified_at: 2025-01-18
 <figure style="margin: 0; margin-bottom: 10px; padding: 0; width: 100%;">
   <img src="https://seoh136199.github.io/assets/img/pancht_ai_1.jpg" style="width: 100%; display: block; border-radius: 8px;">
 </figure>
-<!-- <div class="content-wrapper">
-  <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#1">
-  </iframe>
-  <div class="content-lower-container"></div>
-</div> -->
 
 위 그래프는 천만 회의 시뮬레이션을 통해 얻은 최종 점수 분포를 나타낸다. X축은 최종 점수, Y축은 해당 점수가 나온 횟수이다.<br>
 최저점은 64점, 최고점은 333점으로 꽤 넓은 범위를 보이지만, 양쪽 극단 영역의 빈도는 매우 낮다. 따라서 매우 높은 확률로 130점에서 300점 사이의 점수를 받았다는 걸 알 수 있다.<br>
@@ -86,12 +80,6 @@ last_modified_at: 2025-01-18
 <figure style="margin: 0; margin-bottom: 10px; padding: 0; width: 100%;">
   <img src="https://seoh136199.github.io/assets/img/pancht_ai_2.jpg" style="width: 100%; display: block; border-radius: 8px;">
 </figure>
-<!-- <div class="content-wrapper">
-  <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#2">
-  </iframe>
-  <div class="content-lower-container"></div>
-</div> -->
 
 상단부 카테고리(Aces~Sixes)의 점수 합만 분리해서 그린 그래프이다. 이 부분에는 고정 점수나 특정 조건으로 점수를 얻는 카테고리가 없기 때문에, **평균 근처에 집중된 단봉형 분포**가 나타났다.
 <br><br>
@@ -101,12 +89,6 @@ last_modified_at: 2025-01-18
 <figure style="margin: 0; margin-bottom: 10px; padding: 0; width: 100%;">
   <img src="https://seoh136199.github.io/assets/img/pancht_ai_3.jpg" style="width: 100%; display: block; border-radius: 8px;">
 </figure>
-<!-- <div class="content-wrapper">
-  <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#3">
-  </iframe>
-  <div class="content-lower-container"></div>
-</div> -->
 
 하단부(Choice~Yacht) 카테고리의 점수 합을 분리해서 그래프를 그려보니, 이 **하단부가 올록볼록한 최종 점수 그래프 형태를 만들게 된 주된 원인**임을 알게 되었다. 다만 이 그래프에는 봉우리가 6개만 보이는데, 최종 점수 분포에는 봉우리가 8개 나타난 이유를 아래에서 알아보자.
 <br><br>
@@ -122,12 +104,6 @@ last_modified_at: 2025-01-18
 <figure style="margin: 0; margin-bottom: 10px; padding: 0; width: 100%;">
   <img src="https://seoh136199.github.io/assets/img/pancht_ai_4.jpg" style="width: 100%; display: block; border-radius: 8px;">
 </figure>
-<!-- <div class="content-wrapper">
-  <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#4">
-  </iframe>
-  <div class="content-lower-container"></div>
-</div> -->
 
 위 그래프는 최종 점수를 계산할 때, 보너스를 더해주지 않은 버전이다. 보너스가 포함된 기존 그래프보다 봉우리가 뭉툭해진 모습이 관찰된다.
 <br><br>
@@ -135,12 +111,6 @@ last_modified_at: 2025-01-18
 <figure style="margin: 0; margin-bottom: 10px; padding: 0; width: 100%;">
   <img src="https://seoh136199.github.io/assets/img/pancht_ai_5.jpg" style="width: 100%; display: block; border-radius: 8px;">
 </figure>
-<!-- <div class="content-wrapper">
-  <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#5">
-  </iframe>
-  <div class="content-lower-container"></div>
-</div> -->
 
 그 이유를 알기 위해 보너스를 획득에 성공한 경우와 실패한 경우를 분리해서 그래프를 그려보았다. **각 그래프에는 봉우리가 6개**씩 나타나며, **두 그래프가 합쳐지면서 최종적으로 8개의 봉우리가 생겼다**는 사실을 알 수 있다.
 <br><br>
@@ -150,7 +120,7 @@ last_modified_at: 2025-01-18
 </figure> -->
 <div class="content-wrapper">
   <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#6">
+  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/pancht-ai-play-statistics-for-embed.htm#6">
   </iframe>
   <div class="content-lower-container"></div>
 </div>
@@ -169,7 +139,7 @@ last_modified_at: 2025-01-18
 </figure> -->
 <div class="content-wrapper">
   <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#7">
+  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/pancht-ai-play-statistics-for-embed.htm#7">
   </iframe>
   <div class="content-lower-container"></div>
 </div>
@@ -185,12 +155,6 @@ last_modified_at: 2025-01-18
 <figure style="margin: 0; margin-bottom: 10px; padding: 0; width: 100%;">
   <img src="https://seoh136199.github.io/assets/img/pancht_ai_8.jpg" style="width: 100%; display: block; border-radius: 8px;">
 </figure>
-<!-- <div class="content-wrapper">
-  <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#8">
-  </iframe>
-  <div class="content-lower-container"></div>
-</div> -->
 
 Small Straight 점수 획득에 성공한 경우 4가지만 따로 분리하여 그래프를 그려보았다. **각 그래프의 형태는 거의 동일**하며, 고정 점수의 차이에 따라 **X축 상에서 위치만 달라졌다**는 점이 눈에 띈다.
 <br><br>
@@ -204,7 +168,7 @@ Small Straight 점수 획득에 성공한 경우 4가지만 따로 분리하여 
 </figure> -->
 <div class="content-wrapper">
   <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#9">
+  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/pancht-ai-play-statistics-for-embed.htm#9">
   </iframe>
   <div class="content-lower-container"></div>
 </div>
@@ -221,12 +185,6 @@ Small Straight 점수 획득에 성공한 경우 4가지만 따로 분리하여 
 <figure style="margin: 0; margin-bottom: 10px; padding: 0; width: 100%;">
   <img src="https://seoh136199.github.io/assets/img/pancht_ai_10.jpg" style="width: 100%; display: block; border-radius: 8px;">
 </figure>
-<!-- <div class="content-wrapper">
-  <div class="content-upper-container"></div>
-  <iframe loading="lazy" class="content-container" src="https://seoh136199.github.io/assets/htm/Pancht%20AI%20%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%86%B5%EA%B3%84.htm#10">
-  </iframe>
-  <div class="content-lower-container"></div>
-</div> -->
 
 이번에도 3 of a Kind 점수 획득에 성공한 경우 4가지만 골라서 그래프를 분리하여 그려보았다. 고정 점수 카테고리 획득 여부에 따른 경우 분리와는 다르게, 각 그래프의 개형이 서로 다른 것을 볼 수 있다. 또한 **포함한 성공 카테고리의 개수가 많을수록 좌우로 더 넓게 퍼진 형태**를 나타낸다.<br>
 흥미로운 점은, 두 번째와 세 번째 그래프가 **X축 상에서 영역을 거의 공유**한다는 점이다. 이로부터 Full House와 4 of a Kind 두 카테고리에서 얻는 평균 점수가 비슷하다는 것을 추정할 수 있다. 구체적으로는 Full House의 평균 점수가 살짝 더 높을 것이다. 이는 아래에서 확인해 보겠다.
