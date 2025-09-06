@@ -20,8 +20,6 @@ timezone: Asia/Seoul
 
 title: Seohyun's DEVlog # the main title
 
-tagline: Computer Engineering Junior # it will display as the sub-title
-
 description: >- # used by seo meta and the atom feed
   백준 문제 풀이와 프로젝트 개발 일지를 포스팅합니다
 
