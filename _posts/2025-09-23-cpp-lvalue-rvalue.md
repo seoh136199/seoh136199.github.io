@@ -1,8 +1,6 @@
 ---
 title: "[C++] lvalue와 rvalue"
-
 hidden: true
-sitemap: false
 
 categories:
   - Computer Science
