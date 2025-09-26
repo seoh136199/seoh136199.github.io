@@ -131,9 +131,9 @@ int main() {
 }
 ```
 
-- 함수 이름 `first`는 lvalue로, 주소 연산자(`&`)를 사용해 주소값을 얻을 수 있다.
-- 함수 `first()`의 반환 타입은 lvalue 참조인 `int&`이므로, 함수 호출식 `first(a)`은 lvalue이며 그 자체에 값을 할당할 수 있다.
-- 함수 포인터 `pf`를 통해 호출해도 마찬가지로 lvalue 참조를 반환하므로 `pf(a) = 100;` 또한 유효하다.
+- 함수 이름 `first`는 함수 타입의 lvalue로, 주소 연산자(`&`)를 사용해 주소값을 얻을 수 있다.
+- 함수 `first()`의 반환 타입이 lvalue 참조인 `int&`이므로, 함수 호출식 `first(a)`은 lvalue이며 그 자체에 값을 할당할 수 있다.
+- 함수 포인터 `pf`를 통해 호출해도 동일하게 lvalue 참조를 반환하므로 `pf(a) = 100;` 또한 유효하다.
 - 함수 `first()`의 호출식이 lvalue이므로 주소 연산자(`&`)를 사용할 수 있다. `&first(a)`는 `a[0]`의 주소와 동일하다.
   <br><br>
 
@@ -170,6 +170,12 @@ int main() {
   - lvalue
   - rvalue
   - xvalue
+
+
+https://chatgpt.com/g/g-p-68d2459d1894819197da9915df59f534/c/68d49cc0-0e3c-8320-a6ab-36ea69c4a38d
+
+https://chatgpt.com/g/g-p-68d2459d1894819197da9915df59f534/c/68d6246f-f2a4-832a-8999-ba089918c3c1
+
 
 - 생성과 대입
   - 이동 생성
