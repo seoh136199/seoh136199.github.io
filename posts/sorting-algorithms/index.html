@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="en" mode="dark" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /><meta name="day-prompt" content="days ago" /><meta name="hour-prompt" content="hours ago" /><meta name="minute-prompt" content="minutes ago" /><meta name="justnow-prompt" content="just now" /><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="[CS] 여러가지 정렬 알고리즘" /><meta property="og:locale" content="en" /><meta name="description" content="빅오 표기법" /><meta property="og:description" content="빅오 표기법" /><link rel="canonical" href="https://seoh136199.github.io/posts/sorting-algorithms/" /><meta property="og:url" content="https://seoh136199.github.io/posts/sorting-algorithms/" /><meta property="og:site_name" content="Seohyun’s DEVlog" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2021-05-13T00:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="[CS] 여러가지 정렬 알고리즘" /><meta name="twitter:site" content="@fried_ctex" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-05-13T00:00:00+09:00","datePublished":"2021-05-13T00:00:00+09:00","description":"빅오 표기법","headline":"[CS] 여러가지 정렬 알고리즘","mainEntityOfPage":{"@type":"WebPage","@id":"https://seoh136199.github.io/posts/sorting-algorithms/"},"url":"https://seoh136199.github.io/posts/sorting-algorithms/"}</script><title>[CS] 여러가지 정렬 알고리즘 | Seohyun's DEVlog</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Seohyun's DEVlog"><meta name="application-name" content="Seohyun's DEVlog"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" /><link rel="dns-prefetch" href="https://fonts.gstatic.com" /><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials" /><link rel="dns-prefetch" href="https://www.google-analytics.com" /><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous" /><link rel="dns-prefetch" href="https://www.googletagmanager.com" /><link rel="preconnect" href="https://cdn.jsdelivr.net" /><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" /><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end" lang="en"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="/assets/img/ProfileImage.png" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">Seohyun's DEVlog</a></div><div class="site-subtitle font-italic"></div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center"> <a href="https://github.com/seoh136199" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/fried_ctex" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['seoh136199','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>[CS] 여러가지 정렬 알고리즘</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>[CS] 여러가지 정렬 알고리즘</h1><div class="post-meta text-muted d-flex flex-column"><div> <span class="semi-bold"> Seohyun Yang </span> on <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Thu, May 13, 2021, 12:00 AM +0900" >May 13, 2021<i class="unloaded">2021-05-13T00:00:00+09:00</i> </span></div><div> <span> Updated <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Thu, May 13, 2021, 12:00 AM +0000" >May 13, 2021<i class="unloaded">2021-05-13T00:00:00+09:00</i> </span> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="2014 words">11 min read</span></div></div><div class="post-content"><h1 id="빅오-표기법">빅오 표기법</h1><p>빅오 표기법(big-O notation)은 점근표기법 중 하나로, 알고리즘의 성능을 상한선을 기준으로 하여 수학적으로 표기하는 방법이다. 알고리즘의 시간 복잡도(시간 효율성)과 공간 복잡도(메모리 공간 효율성)를 나타낼 수 있다. 여기서 알고리즘의 시간 복잡도는 실제 알고리즘의 러닝타임을 의미하는 것이 아닌, 데이터나 사용자 수의 증가에 따른 알고리즘의 성능 변화를 예측하는 것이 목적이다.</p><p><br /></p><p>빅오 표기법의 정의는 아래와 같다.</p><div class="language-plaintext highlighter-rouge"><div class="code-header" text-data="plaintext"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>💡 어떤 함수 𝑓(𝑛)의 빅오 표기법이 𝑂(𝑔(𝑛))이라는 것은,
+𝑛 &gt; 𝑛₀ 을 만족하는 충분히 큰 모든 𝑛에 대해 𝑓(𝑛) ≤ 𝑐𝑔(𝑛) 인
+양수 𝑐와 𝑛₀가 존재한다는 것이다.
+</pre></table></code></div></div><h2 id="𝑂1">𝑂(1)</h2><p>상수형. 입력 데이터의 크기와 상관 없이 항상 일정한 연산 횟수를 가진다.</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="𝑂𝚕𝚘𝚐𝑛">𝑂(𝚕𝚘𝚐𝑛)</h2><p>로그형. (ex : 이진 탐색)</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">/=</span><span class="mi">2</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="𝑂𝑛">𝑂(𝑛)</h2><p>선형. 입력 데이터의 크기와 연산 횟수가 비례한다. (ex : 최댓값 찾기)</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="𝑂𝑛𝚕𝚘𝚐𝑛">𝑂(𝑛𝚕𝚘𝚐𝑛)</h2><p>선형로그형. (ex : 퀵 정렬, 합병 정렬)</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">/=</span><span class="mi">2</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="𝑂𝑛-1">𝑂(𝑛²)</h2><p>평방형. (ex : 버블 정렬, 삽입 정렬)</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="𝑂𝑛-2">𝑂(𝑛³)</h2><p>입방형.</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="𝑂2ⁿ">𝑂(2ⁿ)</h2><p>지수형. (ex : 피보나치수열)</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></table></code></div></div><p><br /></p><hr /><h1 id="정렬-알고리즘">정렬 알고리즘</h1><h2 id="선택-정렬">선택 정렬</h2><p>제자리 정렬 알고리즘의 하나이다. 첫번째 자료와 두 번째부터 n번째 자료까지 전부 비교하여 가장 크거나 작은 값을 찾아 첫번째 자리에 놓는다. 이후에는 두 번째부터 n-1번째 자료까지 같은 작업을 반복하면 정렬이 완료된다. 𝑂(𝑛²)의 시간 복잡도를 갖는다.</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre><td class="rouge-code"><pre><span class="c1">// 5개 정수를 오름차순으로 선택 정렬하여 출력하는 코드</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
+	<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+				<span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+				<span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+				<span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h2 id="삽입-정렬">삽입 정렬</h2><p>두 번째 자료부터 시작하여 그 왼쪽의 이미 정렬된 자료들과 비교하여 삽입할 위치를 정하고 그 위치보다 오른쪽에 있던 자료들을 한 칸씩 오른쪽으로 옮긴 후 원하는 자리에 자료를 삽입한다. 이 작업을 두 번째 자료부터 n번째 자료까지 반복하면 정렬이 완료된다. 𝑂(𝑛²)의 시간 복잡도를 갖는다.</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre><td class="rouge-code"><pre><span class="c1">// 5개 정수를 오름차순으로 삽입 정렬하여 출력하는 코드</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
+	<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kt">int</span> <span class="n">curnum</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">isput</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">isput</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">curnum</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+			<span class="k">else</span> <span class="p">{</span>
+				<span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">curnum</span><span class="p">;</span>
+				<span class="n">isput</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">isput</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">curnum</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h2 id="버블-정렬">버블 정렬</h2><p>첫 번째 원소와 두 번째 원소를 비교해 교환하고, 두 번째 원소와 세 번째 원소를 비교해 교환한다. 이 작업을 n-1번째 원소와 n번째 원소까지 반복하면 가장 크거나 작은 값이 n번 자리에 있게 된다. 전체 작업을 반복하면 그 다음으로 크거나 작은 값이 순서대로 n-1, n-2, … 번째 자리에 있게 되어 정렬이 완료된다. 𝑂(𝑛²)의 시간 복잡도를 갖는다.</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre><td class="rouge-code"><pre><span class="c1">// 5개 정수를 오름차순으로 버블 정렬하여 출력하는 코드</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span> <span class="p">};</span>
+	<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+				<span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+				<span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+				<span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h2 id="합병-정렬">합병 정렬</h2><p>하나의 리스트를 균등한 크기의 두 개의 리스트로 분할한 다음 분할된 부분 리스트를 정렬한 뒤, 두 개의 정렬된 부분 리스트를 합하여 정렬된 전체 리스트가 되게 하는 방법이다. 분할 정복 알고리즘의 하나이다. 𝑂(𝑛𝚕𝚘𝚐𝑛)의 시간복잡도를 가진다.</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+</pre><td class="rouge-code"><pre><span class="c1">// 8개 정수를 오름차순으로 합병 정렬하여 출력하는 코드</span>
+<span class="c1">// https://jaehee-developer.tistory.com/12 의 코드 참고하여 작성함</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">merge</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kt">int</span> <span class="n">myarr</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span> <span class="p">};</span>
+	<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+	<span class="n">divide</span><span class="p">(</span><span class="n">myarr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">myarr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
+
+	<span class="c1">//배열을 반으로 나눈 뒤 재귀적으로 작은 배열부터 merge</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+		<span class="n">divide</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+		<span class="n">divide</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+		<span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">merge</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">tmparr</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+
+	<span class="c1">//두 배열 중 하나가 끝나기 전까지 정렬하며 병합</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="n">tmparr</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+		<span class="k">else</span> <span class="n">tmparr</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+	<span class="p">}</span>
+
+	<span class="c1">//나머지 값들도 복사</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span> <span class="n">tmparr</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">];</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">)</span> <span class="n">tmparr</span><span class="p">[</span><span class="n">k</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">];</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">;</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span> <span class="n">arr</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmparr</span><span class="p">[</span><span class="n">s</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h2 id="퀵-정렬">퀵 정렬</h2><p>기준값(pivot)을 설정한 후, pivot보다 작은 값을 왼쪽에, pivot보다 큰 값을 오른쪽에 몰아서 배열한다. 각 부분에서 앞의 작업을 반복해주면 오름차순 배열이 완료된다. 최악의 경우 𝑂(𝑛²)의 시간복잡도를, 평균적으로 𝑂(𝑛𝚕𝚘𝚐𝑛)의 시간복잡도를 가진다.</p><div class="language-c highlighter-rouge"><div class="code-header" text-data="c"><button data-original-title="Copied!"><i class="far fa-clone"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre><td class="rouge-code"><pre><span class="c1">// 8개 정수를 오름차순으로 퀵 정렬하여 출력하는 코드</span>
+<span class="c1">// https://jaehee-developer.tistory.com/14 의 코드 참고하여 작성함</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">getPivot</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kt">int</span> <span class="n">myarr</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span> <span class="p">};</span>
+	<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+	<span class="n">divide</span><span class="p">(</span><span class="n">myarr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span> <span class="n">myarr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">getPivot</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
+		<span class="n">divide</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+		<span class="n">divide</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">getPivot</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">],</span> <span class="n">tmp</span><span class="p">;</span>
+
+	<span class="c1">// pivot보다 작은 요소들을 배열의 앞에 모으기</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">pivot</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">tmp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="o">++</span><span class="n">i</span><span class="p">];</span>
+			<span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+			<span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="c1">// pivot을 pivot보다 작은 요소들의 바로 오른쪽에 배치</span>
+	<span class="n">tmp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+	<span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">];</span>
+	<span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></table></code></div></div></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/computer-science/'>Computer Science</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/algorithm/" class="post-tag no-text-decoration" >Algorithm</a> <a href="/tags/sort/" class="post-tag no-text-decoration" >Sort</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=[CS] 여러가지 정렬 알고리즘 - Seohyun's DEVlog&url=https://seoh136199.github.io/posts/sorting-algorithms/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=[CS] 여러가지 정렬 알고리즘 - Seohyun's DEVlog&u=https://seoh136199.github.io/posts/sorting-algorithms/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=[CS] 여러가지 정렬 알고리즘 - Seohyun's DEVlog&url=https://seoh136199.github.io/posts/sorting-algorithms/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" title-succeed="Link copied successfully!"> </i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/yacht-dice-ai-play-statistics/">[Pancht] 요트 다이스 AI 플레이 통계 및 분석</a><li><a href="/posts/yacht-dice-optimal-selection-algorithm/">[Pancht] 요트 다이스 최적 선택 알고리즘을 구현한 방법</a><li><a href="/posts/spready-optical-illusion-gimmick/">[Spready] 착시 연결 기믹을 구현한 방법</a><li><a href="/posts/cpp-lvalue-rvalue/">[C++] lvalue와 rvalue</a><li><a href="/posts/boj-4781/">[백준 4781번] 사탕 가게 [C++]</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/algorithm/">Algorithm</a> <a class="post-tag" href="/tags/baekjoon/">Baekjoon</a> <a class="post-tag" href="/tags/data-structure/">Data structure</a> <a class="post-tag" href="/tags/graph/">Graph</a> <a class="post-tag" href="/tags/segment-tree/">Segment tree</a> <a class="post-tag" href="/tags/dfs/">DFS</a> <a class="post-tag" href="/tags/dynamic-programming/">Dynamic Programming</a> <a class="post-tag" href="/tags/minimum-spanning-tree/">Minimum Spanning Tree</a> <a class="post-tag" href="/tags/pancht/">Pancht</a> <a class="post-tag" href="/tags/sort/">Sort</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/boj-1517/"><div class="card-body"> <span class="timeago small" >Jan 28, 2022<i class="unloaded">2022-01-28T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[백준 1517번] 버블 소트 [C++]</h3><div class="text-muted small"><p> 1517번: 버블 소트 문제 링크: 1517번: 버블 소트 개요 주어진 수열에 대해 버블 소트를 수행하여 오름차순으로 정렬할 때 발생하는 Swap의 횟수, 즉 각 원소의 자리 변화의 총 횟수를 구하는 문제이다. n의 범위가 (1 ≤ n ≤ 500,000)이기 대문에 정직하게 버블 소트를 진행하며 Swap의 횟수를 세면 시간복잡도가 O(n^2)...</p></div></div></a></div><div class="card"> <a href="/posts/boj-14621/"><div class="card-body"> <span class="timeago small" >Feb 19, 2022<i class="unloaded">2022-02-19T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[백준 14621번] 나만 안되는 연애 [C++]</h3><div class="text-muted small"><p> 14621번: 나만 안되는 연애 문제 링크: 14621번: 나만 안되는 연애 개요 주어진 그래프에서 노드들을 연결하는 최단 거리 트리의 총 거리를 구하는 문제이다. 최소 스패닝 트리 알고리즘 중 크루스칼 알고리즘을 이용해 풀이하겠다. 최소 스패닝 트리에 대해 [알고리즘] 최소 신장 트리(MST, Minimum Spanning Tree)란 포스...</p></div></div></a></div><div class="card"> <a href="/posts/boj-2696/"><div class="card-body"> <span class="timeago small" >Feb 27, 2022<i class="unloaded">2022-02-27T00:00:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[백준 2696번] 중앙값 구하기 [C++]</h3><div class="text-muted small"><p> 2696번: 중앙값 구하기 문제 링크: 2696번: 중앙값 구하기 개요 문제가 시킨 일인 수열이 주어지면 홀수 번째 수를 읽을 때마다 중앙값을 출력하는 작업만 착실하게 수행하면 되는 문제이다. 하지만 매번 수열을 정렬하고 중간 인덱스 값을 출력하는 방식으로는 시간초과를 피할 수 없다. 따라서 우선순위 큐를 두 개 이용해서 풀이할 것이다. ma...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/2s-complement-real-number/" class="btn btn-outline-primary" prompt="Older"><p>[CS] 2의 보수와 컴퓨터의 실수 표현</p></a> <a href="/posts/boj-2143/" class="btn btn-outline-primary" prompt="Newer"><p>[백준 2143번] 두 배열의 합 [C언어]</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2025 <a href="https://twitter.com/fried_ctex">Seohyun Yang</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/algorithm/">Algorithm</a> <a class="post-tag" href="/tags/baekjoon/">Baekjoon</a> <a class="post-tag" href="/tags/data-structure/">Data structure</a> <a class="post-tag" href="/tags/graph/">Graph</a> <a class="post-tag" href="/tags/segment-tree/">Segment tree</a> <a class="post-tag" href="/tags/dfs/">DFS</a> <a class="post-tag" href="/tags/dynamic-programming/">Dynamic Programming</a> <a class="post-tag" href="/tags/minimum-spanning-tree/">Minimum Spanning Tree</a> <a class="post-tag" href="/tags/pancht/">Pancht</a> <a class="post-tag" href="/tags/sort/">Sort</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://seoh136199.github.io{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.16.1,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VTZLYLE721"></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VTZLYLE721'); }); </script>
